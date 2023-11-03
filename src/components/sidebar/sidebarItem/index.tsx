@@ -4,13 +4,14 @@ import { FunctionComponent } from 'react';
 
 interface ItemProps {
     content?: string;
+    icon?: object;
 }
 
-export const SideBarItem: FunctionComponent<ItemProps> = ({content}) => {
+export const SideBarItem: FunctionComponent<ItemProps> = ({content, icon}) => {
     return(
         <div className={styles.sidebar__item}>
             <span>
-                <IoMdAddCircle />{content}
+                {icon}{content}
             </span>
         </div>
     )
