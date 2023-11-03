@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container } from './styles.js';
+import { Container } from './styles';
 import { motion } from 'framer-motion';
 
 export const SideBar = () => {
