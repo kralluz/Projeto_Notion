@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    position: ${(props:any):void => 
+export const SideBarContainer = () => styled.div`
+    position: ${(props:any) => 
         props.position ? 'relative' : 'absolute'
     };
     width: fit-content;
-
     background-color: red;
 `;

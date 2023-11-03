@@ -1,18 +1,17 @@
-import './styles/index.scss';
-import './App.css';
-import { SideBar } from './components/sidebar'
-import { Main } from './components/main';
-import EmojiPicker from 'emoji-picker-react';
+import "./styles/index.scss";
+import "./App.css";
+import { SideBar } from "./components/sidebar";
+import { Main } from "./components/main";
 
 function App() {
   return (
     <>
-        <SideBar/>        
-        <Main/>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quis illum modi fugit in officiis. Doloribus aut aspernatur culpa, laudantium iste sequi quos illum facere consectetur commodi aliquid quaerat soluta?</p>
-        <EmojiPicker />
+      <SideBar />
+      <Main />
+      <h1>teste</h1>
+      <h1>teste</h1>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
