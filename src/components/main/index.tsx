@@ -1,5 +1,12 @@
+import { InputTextTittle } from "../inputComponents/inputTextTittle";
+import { MainStyle } from "./main";
+
 export const Main = () => {
-    return(
-        div
-    )
-}
+    return (
+        <>
+            <MainStyle>
+            </MainStyle>
+            <InputTextTittle/>
+        </>
+    );
+};
