@@ -1,9 +1,13 @@
+import { SideBarItem } from "./sidebarItem";
+import { SideBarContainer } from "./styles";
 
 
 export const SideBar = () => {
     return(
        <>
-            <h1>Teste</h1>
+            <SideBarContainer>
+                <SideBarItem content="Nova página" />
+            </SideBarContainer>
        </>
     )
 };

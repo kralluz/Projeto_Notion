@@ -13,16 +13,16 @@ $negative: #E83F5B;
 
 
 body {
-    background-color: var(--gray-4);
+    background-color: $gray-4;
     font-family: 'Inter', sans-serif;
 }
 
 h1, h2, h3, h4 p{
-    color: var(--gray-0);
+    color: $gray-0;
 }
 
 a {
-    color: var(--gray-0);
+    color: $gray-0;
     font-size: 1rem;
     font-weight: 500;
     border: none;

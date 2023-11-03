@@ -1,0 +1,21 @@
+@import '/src/styles/index.scss';
+
+.sidebar__item{
+    display: flex;
+    border-radius: 3px;
+    width: 100%;
+    padding: 6px 0;
+    color: $gray-1;
+    font-weight: 700;
+    cursor: pointer;
+    span{
+        display: flex;
+        gap: 10px;
+        margin-left: 1em;
+        font-weight: 500;
+        font-size: .9em;
+        svg{
+            font-size: 1.2em;
+        }
+    }
+}
