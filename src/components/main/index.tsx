@@ -1,4 +1,3 @@
-import { InputTextTittle } from "../inputComponents/inputTextTittle";
 import { MainStyle } from "./main";
 
 export const Main = ( ) => {
@@ -6,7 +5,6 @@ export const Main = ( ) => {
         <>
             <MainStyle>
             </MainStyle>
-            <InputTextTittle/>
         </>
     );
 };
