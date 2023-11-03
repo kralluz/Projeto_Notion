@@ -18,9 +18,9 @@ export const OpenAndClose = styled.div`
         margin-right: .5em;
         border-radius: 3px;
         color: red;
-        background-color: white;
+        background-color: transparent;
         &:hover{
-            background-color: #252525;
+            background-color: #272727;
         }
     }
 `
