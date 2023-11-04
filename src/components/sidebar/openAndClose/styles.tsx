@@ -17,10 +17,12 @@ export const OpenAndClose = styled.div`
         font-size: 25px;
         margin-right: .5em;
         border-radius: 3px;
-        color: red;
+        color: var(--gray-1);
         background-color: transparent;
+        transition: .3s;
         &:hover{
             background-color: #272727;
+            color: var(--gray-0);
         }
     }
 `

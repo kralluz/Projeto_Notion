@@ -1,14 +1,13 @@
 
 import "./App.css";
-import { SideBar } from "./components/sidebar";
+import { SideBar } from "./components/sidebar/sidebar.container";
 
 function App() {
   return (
     <>
       <SideBar />
-      <h1>Teste</h1>
     </>
-  );
+  )
 }
 
 export default App;
