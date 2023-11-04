@@ -10,6 +10,4 @@ export const SideBarContainer = styled.div`
     width: fit-content;
     height: 100vh;
     background-color: var(--gray-5);
-    
-    
 `;

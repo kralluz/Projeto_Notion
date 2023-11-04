@@ -20,6 +20,7 @@ export const OpenAndClose = styled.div`
         color: var(--gray-1);
         background-color: transparent;
         transition: .3s;
+        cursor: pointer;
         &:hover{
             background-color: #272727;
             color: var(--gray-0);
