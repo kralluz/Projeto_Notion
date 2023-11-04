@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import '../../../styles/global.css';
+import '../../styles/global.css';
 
 export const OpenAndClose = styled.div`
     display: flex;

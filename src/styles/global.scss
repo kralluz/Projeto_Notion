@@ -12,9 +12,12 @@ $gray-5: #202020;
 $sucess: #3fe864;
 $negative: #E83F5B;
 
-
+*:focus {
+    outline: none;
+}
 /* Estilo para o conteúdo geral */
 .prose {
+    
     max-width: 800px;
     /* Largura máxima do conteúdo */
     margin: 0 auto;
@@ -69,3 +72,148 @@ $negative: #E83F5B;
     /* Espaçamento acima e abaixo da citação */
 }
 
+/* Estilo para links dentro do conteúdo "prose" */
+.prose a {
+    color: #50c878d2;
+    /* Cor padrão para links (pode ser alterada) */
+    text-decoration: underline;
+    /* Sublinhado para links */
+    transition: color 0.3s;
+
+    /* Efeito de transição suave para a cor do link */
+    /* Remover sublinhado ao passar o mouse */
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.prose blockquote {
+    border-left: 5px solid #3498db;
+    /* Cor e espessura da borda esquerda (pode ser alterada) */
+    margin: 1em 0;
+    /* Espaçamento entre blocos de citação */
+    padding: 0.5em 1em;
+    /* Preenchimento interno do bloco de citação */
+    background-color: #1b1b1b;
+    /* Cor de fundo (pode ser alterada) */
+    color: #ffffff;
+    /* Cor do texto dentro do bloco de citação (pode ser alterada) */
+    font-style: italic;
+    /* Estilo de fonte em itálico */
+    font-family: "Georgia", serif;
+    /* Fonte para as citações */
+}
+
+/* Estilos para tabelas em dark mode dentro da classe "prose" */
+.prose table {
+    width: 100%;
+    /* Tabela ocupa 100% da largura do contêiner */
+    border-collapse: collapse;
+    /* Remove espaçamento entre as células */
+    background-color: #33333336;
+    /* Cor de fundo da tabela no modo escuro */
+    color: #fff;
+    /* Cor do texto na tabela no modo escuro */
+    text-align: center;
+    /* Alinhamento centralizado */
+}
+
+/* Estilo para o cabeçalho da tabela */
+.prose table th {
+    border: 1px solid #000000;
+    /* Borda em torno do cabeçalho */
+    background-color: #44444438;
+    /* Cor de fundo para cabeçalho da tabela */
+    font-weight: bold;
+    /* Texto em negrito */
+    text-align: left;
+    /* Alinhamento à esquerda */
+    padding: 10px;
+    /* Espaçamento interno */
+    text-align: center;
+    /* Alinhamento centralizado */
+}
+
+/* Estilo para as células da tabela */
+.prose table td {
+    border: 1px solid #141414;
+    /* Borda em torno das células */
+    text-align: left;
+    /* Alinhamento à esquerda */
+    padding: 10px;
+    /* Espaçamento interno */
+    text-align: center;
+    /* Alinhamento centralizado */
+}
+
+/* Estilo para linhas alternadas na tabela */
+.prose table tr:nth-child(even) {
+    background-color: #55555539;
+    /* Cor de fundo para linhas pares */
+
+}
+
+/* Estilo para botões dentro do conteúdo "prose" */
+.prose button {
+    /* Estilo padrão para botões */
+    background-color: #3498db;
+    /* Cor de fundo (pode ser alterada) */
+    color: #fff;
+    /* Cor do texto (pode ser alterada) */
+    padding: 0.5rem 1rem;
+    /* Espaçamento interno do botão */
+    border: none;
+    /* Remover a borda padrão */
+    border-radius: 4px;
+    /* Cantos arredondados */
+
+    /* Efeito de transição suave para hover */
+    transition: background-color 0.3s;
+
+    /* Espaçamento entre botões */
+    margin: 0.5rem;
+}
+
+/* Estilo para botões em dark mode */
+.dark-mode .prose button {
+    background-color: #1a202c;
+    /* Cor de fundo em dark mode (pode ser alterada) */
+    color: #fff;
+    /* Cor do texto em dark mode (pode ser alterada) */
+}
+
+/* Remover sublinhado ao passar o mouse */
+.prose button:hover {
+    background-color: #2778ab;
+    /* Cor de fundo no hover (pode ser alterada) */
+}
+
+/* Estilo para task lists em modo escuro */
+.prose .task-list {
+    border-color: #4a4a4a;
+    /* Cor da borda da task list */
+    color: #fff;
+    /* Cor do texto da task list */
+    margin-left: 1.5em;
+    /* Recuo à esquerda para a task list */
+
+    /* Estilize os itens de tarefa (checkbox e texto) */
+    .task-list-item {
+        display: flex;
+        align-items: center;
+
+        /* Estilize a checkbox */
+        input[type="checkbox"] {
+            margin-right: 0.5em;
+            /* Espaçamento entre a checkbox e o texto */
+            width: 15px; /* Defina a largura desejada */
+            height: 15px; /* Defina a altura desejada */
+        }
+
+        /* Estilize o texto da tarefa */
+        p {
+            margin: 0;
+            /* Remova a margem do parágrafo para ajuste */
+        }
+    }
+}
