@@ -15,8 +15,7 @@ Este é um projeto que visa replicar as principais funcionalidades do Notion, um
 ### Frontend
 
 - **React**: Biblioteca JavaScript para construção de interfaces.
-- **Tailwind CSS**: Framework CSS utilitário.
-- **Bootstrap** (Opcional): Outro framework CSS para agilizar o desenvolvimento.
+- **Styled Components**: Framework CSS utilitário.
 
 ### Bundler/Build Tools
 
@@ -27,7 +26,7 @@ Este é um projeto que visa replicar as principais funcionalidades do Notion, um
 
 1. **Gerenciamento de Notas**: Criar, editar e excluir notas.
 2. **Organização de Páginas**: Criar páginas e organizar notas nelas.
-3. **Colaboração em Tempo Real**: Permitir que vários usuários colaborem em tempo real.
+3. **Auto Save**: Ter a função de autosave
 4. **Pesquisa Avançada**: Busca rápida e avançada nas notas.
 5. **Personalização**: Customização de temas, ícones, e mais.
 

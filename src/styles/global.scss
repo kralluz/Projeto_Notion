@@ -154,28 +154,6 @@ body{
 .prose table tr:nth-child(even) {
     background-color: #55555539;
     /* Cor de fundo para linhas pares */
-
-}
-
-/* Estilo para botões dentro do conteúdo "prose" */
-.prose button {
-    /* Estilo padrão para botões */
-    background-color: #3498db;
-    /* Cor de fundo (pode ser alterada) */
-    color: #fff;
-    /* Cor do texto (pode ser alterada) */
-    padding: 0.5rem 1rem;
-    /* Espaçamento interno do botão */
-    border: none;
-    /* Remover a borda padrão */
-    border-radius: 4px;
-    /* Cantos arredondados */
-
-    /* Efeito de transição suave para hover */
-    transition: background-color 0.3s;
-
-    /* Espaçamento entre botões */
-    margin: 0.5rem;
 }
 
 /* Estilo para botões em dark mode */
