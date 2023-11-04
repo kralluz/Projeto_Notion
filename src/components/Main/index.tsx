@@ -2,7 +2,7 @@ import { Article } from "../Article";
 import { Header } from "../Header";
 import { MainStyle } from "./style";
 
-export const Main = ( ) => {
+export const Main = () => {
     return (
         <>
             <MainStyle>
