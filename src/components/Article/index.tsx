@@ -1,6 +1,6 @@
-import CodeHighlighter from './CodeHighlighter'; // Importe o seu componente CodeHighlighter
-import { ArticleStyle } from "./article.style";
-import '../../../styles/global.scss';
+import { ArticleStyle } from "./style";
+import '../../styles/global.scss';
+import CodeBlock from "../CodeBlock";
 
 export const Article = () => {
     return (
@@ -115,10 +115,9 @@ export const Article = () => {
                         enfrentar os desafios das mudanças climáticas.
                     </p>
 
-{/*                     <CodeBlock language="javascript" code={
-                        `function helloWorld() { console.log('Olá, mundo!'); } helloWorld();`} 
-                    /> */}
-                    
+                    <CodeBlock language="javascript" code={
+            `function helloWorld() { console.log('Olá, mundo!'); } helloWorld();`}  />
+
                 </div>
             </ArticleStyle>
         </>

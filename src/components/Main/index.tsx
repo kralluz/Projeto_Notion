@@ -1,6 +1,6 @@
-import { Article } from "./article/article.component";
-import { Header } from "./header/header.component";
-import { MainStyle } from "./main.style";
+import { Article } from "../Article";
+import { Header } from "../Header";
+import { MainStyle } from "./style";
 
 export const Main = ( ) => {
     return (

@@ -1,6 +1,6 @@
-import { OpenAndClose } from "./openAndClose/styles";
-import { SideBarItem } from "./sidebarItem";
-import { SideBarContainer } from "./sidebar.styles";
+import { OpenAndClose } from "../openAndClose/styles";
+import { SideBarItem } from "../../assets/sidebarItem";
+import { SideBarContainer } from "./styles";
 import { IoMdAddCircle } from 'react-icons/io';
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from 'react-icons/md'
 import { useState } from 'react'
