@@ -5,9 +5,7 @@ export const SideBarContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: ${(props:any) => 
-        props.position ? 'relative' : 'fixed'
-    };
+    position: relative;
     min-width: 220px;
     width: fit-content;
     height: 100vh;

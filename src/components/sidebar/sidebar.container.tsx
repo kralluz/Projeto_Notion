@@ -10,7 +10,7 @@ export const SideBar = () => {
     return(
        <>
             <SideBarContainer>
-                <OpenAndClose position={true}>
+                <OpenAndClose>
                     <img src="src\assets\notion.ico" alt="notion icon" />
                     {isOpen ? <MdKeyboardDoubleArrowLeft /> : <MdKeyboardDoubleArrowRight /> }
                 </OpenAndClose>
