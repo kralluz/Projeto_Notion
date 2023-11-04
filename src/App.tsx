@@ -9,7 +9,9 @@ function App() {
     <>
       <SideBar />
       <Main/>
-      <h1>Teste</h1>
+      <h1>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt aperiam blanditiis necessitatibus similique? Maxime accusantium laboriosam, omnis quo earum minus, labore esse modi natus fugiat necessitatibus a veritatis itaque mollitia!
+      </h1>
     </>
   )
 }

@@ -13,20 +13,57 @@ $sucess: #3fe864;
 $negative: #E83F5B;
 
 
-body {
-    background-color: $gray-4;
-    font-family: 'Inter', sans-serif;
+
+/* Estilo para o conteúdo geral */
+.prose {
+    max-width: 800px;
+    /* Largura máxima do conteúdo */
+    margin: 0 auto;
+    /* Centralizar o conteúdo na página */
+    font-family: Arial, sans-serif;
+    /* Família de fontes padrão */
+    font-size: 1.125rem;
+    /* Tamanho da fonte base (18px) */
+    line-height: 1.5;
+    /* Altura da linha */
+    padding: 1rem;
+    /* Espaçamento interno para melhor leitura */
 }
 
-h1, h2, h3, h4 p{
-    color: $gray-0;
+/* Estilo para títulos */
+.prose h1 {
+    font-size: 2rem;
+    /* Tamanho da fonte para títulos h1 */
+    margin: 1.5rem 0;
+    /* Espaçamento acima e abaixo do título */
 }
 
-a {
-    color: $gray-0;
-    font-size: 1rem;
-    font-weight: 500;
-    border: none;
-    text-decoration: none;
+/* Estilo para parágrafos */
+.prose p {
+    margin: 1rem 0;
+    /* Espaçamento abaixo de cada parágrafo */
 }
 
+/* Estilo para listas não ordenadas */
+.prose ul {
+    list-style-type: disc;
+    /* Marcadores de lista de discos */
+    margin: 1rem 0;
+    /* Espaçamento abaixo da lista */
+    padding-left: 1rem;
+    /* Espaçamento à esquerda para recuo */
+}
+
+/* Estilo para itens de lista */
+.prose li {
+    margin: 0.5rem 0;
+    /* Espaçamento abaixo de cada item de lista */
+}
+
+/* Estilo para citações */
+.prose blockquote {
+    font-style: italic;
+    /* Estilo de itálico para citações */
+    margin: 1rem 0;
+    /* Espaçamento acima e abaixo da citação */
+}
