@@ -1,15 +1,13 @@
+import React from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { darcula } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-
-const CodeBlock = ({ language, code }) => {
+function CodeHighlighter({ code }) {
     return (
-        <div className="prose prose-code">
-            <SyntaxHighlighter language={language} style={darcula}>
-                {code}
-            </SyntaxHighlighter>
-        </div>
+        <SyntaxHighlighter language="javascript" style={docco}>
+            {code}
+        </SyntaxHighlighter>
     );
-};
+}
 
-export default CodeBlock;
+export default CodeHighlighter;

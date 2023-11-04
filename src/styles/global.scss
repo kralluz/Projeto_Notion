@@ -13,7 +13,6 @@ $sucess: #3fe864;
 $negative: #E83F5B;
 
 
-
 /* Estilo para o conteúdo geral */
 .prose {
     max-width: 800px;
@@ -28,6 +27,8 @@ $negative: #E83F5B;
     /* Altura da linha */
     padding: 1rem;
     /* Espaçamento interno para melhor leitura */
+    color: #f2f2f2e1;
+    /* Cor do texto para o modo escuro */
 }
 
 /* Estilo para títulos */
@@ -67,3 +68,4 @@ $negative: #E83F5B;
     margin: 1rem 0;
     /* Espaçamento acima e abaixo da citação */
 }
+
