@@ -1,5 +1,3 @@
-
-import "./App.css";
 import { SideBar } from "./components/sidebar/sidebar.container";
 import { Main } from "./components/main/main.component";
 import { AppStyled } from "./App.styles";
