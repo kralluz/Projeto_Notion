@@ -3,12 +3,12 @@ import { SideBarItem } from "../../assets/sidebarItem";
 import { SideBarComponent, SideBarContainer } from "./styles";
 import { IoMdAddCircle } from 'react-icons/io';
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from 'react-icons/md';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 
 export const SideBar = ({isOpenSideBarValue, switchOpenOrClose}:any) => {
     return(
        <>
-            <SideBarComponent isOpenSideBarValue={isOpenSideBarValue}>
+            <SideBarComponent as={motion.div} isOpenSideBarValue={isOpenSideBarValue}>
                 <SideBarContainer isOpenSideBarValue={isOpenSideBarValue}>
                     <OpenAndClose onClick={switchOpenOrClose}>
                         <img src="src\assets\notion.ico" alt="notion icon" />

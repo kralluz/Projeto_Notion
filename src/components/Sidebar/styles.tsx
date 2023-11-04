@@ -14,17 +14,20 @@ export const SideBarComponent = styled.div<SideBar>`
     width: fit-content;
     height: 100vh;
     background-color: var(--gray-5);
-    transition: .5s;
+    transition: .5s ;
 `;
 
 export const SideBarContainer = styled.div<SideBar>`
     position: ${props => props.isOpenSideBarValue ? 'relative' : 'absolute'};
     top: ${props => props.isOpenSideBarValue ? '0%' : '50%'};
-    left: 0;
+    left: ${props => props.isOpenSideBarValue ? '0' : '-170px'};
     transform: ${props => props.isOpenSideBarValue ? 'translateY(0%)' : 'translateY(-50%)'};
     min-width: 220px;
-    background-color: var(--gray-5);
-    transition: .5s;
+    background-color: var(--gray-5);    
     border-radius: 0 5px 5px 0;
+    transition: .6s;
+    &:hover{
+        left: 0;
+    }
 `
 
