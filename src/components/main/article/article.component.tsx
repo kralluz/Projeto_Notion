@@ -1,4 +1,5 @@
 import { ArticleStyle } from "./article.style";
+import '../../../styles/global.scss';
 
 export const Article = () => {
     return (
