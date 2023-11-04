@@ -7,7 +7,9 @@ function App() {
         <>
             <AppStyled>
                 <SideBar />
-                <Main />
+                <div className="main__container">
+                    <Main />
+                </div>
             </AppStyled>
         </>
     );
