@@ -12,6 +12,10 @@ $gray-5: #202020;
 $sucess: #3fe864;
 $negative: #E83F5B;
 
+body{
+    background-color: $gray-5;
+}
+
 *:focus {
     outline: none;
 }
