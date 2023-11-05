@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import '../../styles/global.css';
 
 interface SideBar {
-    isOpenSideBarValue: boolean
+    isopensidebarvalue: boolean
 }
 
 export const SideBarComponent = styled.div<SideBar>`
@@ -10,7 +10,7 @@ export const SideBarComponent = styled.div<SideBar>`
     flex-direction: column;
     align-items: center;
     position: fixed;
-    min-width: ${props => props.isOpenSideBarValue ? '220px' : '0px'};
+    min-width: ${props => props.isopensidebarvalue ? '220px' : '0px'};
     width: fit-content;
     height: 100vh;
     background-color: var(--gray-5);
@@ -19,10 +19,10 @@ export const SideBarComponent = styled.div<SideBar>`
 `;
 
 export const SideBarContainer = styled.div<SideBar>`
-    position: ${props => props.isOpenSideBarValue ? 'absolute' : 'absolute'};
-    top: ${props => props.isOpenSideBarValue ? '0%' : '50%'};
-    left: ${props => props.isOpenSideBarValue ? '0' : '-170px'};
-    transform: ${props => props.isOpenSideBarValue ? 'translateY(0%)' : 'translateY(-50%)'};
+    position: ${props => props.isopensidebarvalue ? 'absolute' : 'absolute'};
+    top: ${props => props.isopensidebarvalue ? '0%' : '50%'};
+    left: ${props => props.isopensidebarvalue ? '0' : '-170px'};
+    transform: ${props => props.isopensidebarvalue ? 'translateY(0%)' : 'translateY(-50%)'};
     min-width: 220px;
     background-color: var(--gray-5);    
     border-radius: 0 5px 5px 0;

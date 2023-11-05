@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 interface Main {
-    isOpenSideBarValue: boolean;
+    isopensidebarvalue: boolean;
 }
 
 export const AppStyled = styled.div`
@@ -11,7 +11,7 @@ export const AppStyled = styled.div`
 export const MainContainer = styled.div`
     position: absolute;
     right: 0;
-    width: ${props => props.isOpenSideBarValue ? 'calc(100% - 220px)' : '100%'};
+    width: ${props => props.isopensidebarvalue ? 'calc(100% - 220px)' : '100%'};
     z-index: -1;
     transition: .5s;
 `

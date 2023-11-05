@@ -8,15 +8,14 @@ function App() {
     function switchOpenOrClose(){
         return isOpenSideBar ? setIsOpenSideBar(false) : setIsOpenSideBar(true)
     }
-    let isOpenSideBarValue = Boolean(isOpenSideBar)
+    let isopensidebarvalue = isOpenSideBar;
     
     return (
         <>
             <AppStyled>
-                <SideBar isOpenSideBarValue={isOpenSideBarValue} switchOpenOrClose={switchOpenOrClose} />
-                <MainContainer isOpenSideBarValue={isOpenSideBarValue}>
+                <SideBar isopensidebarvalue={isopensidebarvalue} switchOpenOrClose={switchOpenOrClose} />
+                <MainContainer isopensidebarvalue={isopensidebarvalue}>
                     <Main />
-                    
                 </MainContainer>
             </AppStyled>
         </>
