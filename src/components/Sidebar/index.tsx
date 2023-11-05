@@ -8,7 +8,15 @@ import {
 } from "react-icons/md";
 import { motion } from "framer-motion";
 
-export const SideBar = ({ isopensidebarvalue, switchOpenOrClose }: any) => {
+interface SidebarProps {
+    isopensidebarvalue: boolean;
+    switchOpenOrClose: () => void;
+}
+
+export const SideBar: React.FC<SidebarProps> = ({
+    isopensidebarvalue,
+    switchOpenOrClose,
+}: any) => {
     return (
         <>
             <SideBarComponent
