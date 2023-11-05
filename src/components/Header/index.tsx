@@ -4,7 +4,7 @@ export const Header = ( ) => {
     return (
         <>
             <HeaderStyle>
-            
+                <span>Página</span>
             </HeaderStyle>
         </>
     );

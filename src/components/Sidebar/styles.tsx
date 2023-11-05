@@ -15,10 +15,11 @@ export const SideBarComponent = styled.div<SideBar>`
     height: 100vh;
     background-color: var(--gray-5);
     transition: .5s ;
+    
 `;
 
 export const SideBarContainer = styled.div<SideBar>`
-    position: ${props => props.isOpenSideBarValue ? 'relative' : 'absolute'};
+    position: ${props => props.isOpenSideBarValue ? 'absolute' : 'absolute'};
     top: ${props => props.isOpenSideBarValue ? '0%' : '50%'};
     left: ${props => props.isOpenSideBarValue ? '0' : '-170px'};
     transform: ${props => props.isOpenSideBarValue ? 'translateY(0%)' : 'translateY(-50%)'};
