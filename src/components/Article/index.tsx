@@ -13,7 +13,7 @@ import { BsCodeSlash } from "react-icons/bs";
 import { BubbleMenu, EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import React, { useEffect } from "react";
-import { InitialContent } from "../Editor/initialContent";
+import { InitialContent } from "./initialContent";
 import { BubbleMenuButton, BubbleMenuDiv } from "../BubbleMenuButtons/style";
 import Underline from '@tiptap/extension-underline'
 
