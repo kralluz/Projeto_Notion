@@ -1,13 +1,14 @@
 import { ArticleStyle } from "./style";
 import "../../styles/global.scss";
-import { Editor } from "../Editor";
+import { Editor } from "../Editor/" ;
+
 
 export const Article = () => {
     return (
         <>
             <ArticleStyle>
                 <div className="prose">
-                    <Editor />
+                <Editor/>
                 </div>
             </ArticleStyle>
         </>

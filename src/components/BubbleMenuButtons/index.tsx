@@ -10,7 +10,7 @@ import { BsCodeSlash } from "react-icons/bs";
 
 import { BubbleMenuButton, BubbleMenuDiv } from "./style";
 
-export const BubbleMenuButtons = () => {
+export const BubbleMenuButtons  = () => {
     return (
         <>
             <BubbleMenuDiv>

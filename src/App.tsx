@@ -16,6 +16,7 @@ function App() {
                 <SideBar isOpenSideBarValue={isOpenSideBarValue} switchOpenOrClose={switchOpenOrClose} />
                 <MainContainer isOpenSideBarValue={isOpenSideBarValue}>
                     <Main />
+                    
                 </MainContainer>
             </AppStyled>
         </>
