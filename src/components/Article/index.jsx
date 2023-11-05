@@ -203,7 +203,7 @@ export const Article = () => {
                                             <div className="box2">
                                                 <p>{linkInputValue}</p>
                                                 <p className="SetLinkMoreOptions--description">
-                                                    Link para a Página da web
+                                                    Digite uma URL completa para vincular
                                                 </p>
                                             </div>
                                         </div>
