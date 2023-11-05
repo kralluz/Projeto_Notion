@@ -7,4 +7,6 @@ export const HeaderStyle = styled.main`
     height: 45px;
     background-color: var(--gray-4);
     z-index: 1;
+    color: white;
+    border: solid 1px white;
 `;
