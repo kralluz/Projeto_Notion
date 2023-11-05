@@ -212,7 +212,7 @@ code {
 
     .ContainerSetLinkMenu{
         position: relative;
-        right: 310px;
+        right: 0px;
         top: 8px;
     
         width: 350px; 
@@ -257,7 +257,6 @@ code {
             text-align: center;
         
             .SetLinkMoreOptions{
-                background-color: red;
                 position: absolute;
                 right: 1%;
                 top: 48px;
@@ -281,7 +280,6 @@ code {
                 align-items: center;
                 justify-content: flex-start;
                 .box1{
-
                     svg{
                         font-size: 18px;
                         margin: 8px;
