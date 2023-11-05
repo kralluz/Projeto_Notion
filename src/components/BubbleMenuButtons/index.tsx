@@ -1,3 +1,4 @@
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiBold } from "react-icons/bi";
 import { TbItalic } from "react-icons/tb";
 import { BiText } from "react-icons/bi";
@@ -14,28 +15,30 @@ export const BubbleMenuButtons = () => {
         <>
             <BubbleMenuDiv>
                 <BubbleMenuButton>
-                    <BiText size="25"/>
+                    <BiText />
+                    <MdKeyboardArrowDown/>
                 </BubbleMenuButton>
                 <BubbleMenuButton>
-                    <HiMiniArrowUpRight size="25"/>
+                    <HiMiniArrowUpRight/>
+                    <span>Link</span>
                 </BubbleMenuButton>
                 <BubbleMenuButton>
-                    <BiCommentDetail size="25"/>
+                    <BiCommentDetail/>
                 </BubbleMenuButton>
                 <BubbleMenuButton>
-                    <BiBold size="25"/>
+                    <BiBold />
                 </BubbleMenuButton>
                 <BubbleMenuButton>
-                    <TbItalic size="25"/>
+                    <TbItalic />
                 </BubbleMenuButton>
                 <BubbleMenuButton>
-                    <MdOutlineFormatUnderlined size="25"/>
+                    <MdOutlineFormatUnderlined />
                 </BubbleMenuButton>
                 <BubbleMenuButton>
-                    <BsCodeSlash size="25"/>
+                    <BsCodeSlash />
                 </BubbleMenuButton>
                 <BubbleMenuButton>
-                    <AiOutlineBgColors size="25"/>
+                    <AiOutlineBgColors />
                 </BubbleMenuButton>
             </BubbleMenuDiv>
         </>

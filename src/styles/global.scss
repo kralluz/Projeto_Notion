@@ -156,20 +156,6 @@ body{
     /* Cor de fundo para linhas pares */
 }
 
-/* Estilo para botões em dark mode */
-.dark-mode .prose button {
-    background-color: #1a202c;
-    /* Cor de fundo em dark mode (pode ser alterada) */
-    color: #fff;
-    /* Cor do texto em dark mode (pode ser alterada) */
-}
-
-/* Remover sublinhado ao passar o mouse */
-.prose button:hover {
-    background-color: #2778ab;
-    /* Cor de fundo no hover (pode ser alterada) */
-}
-
 /* Estilo para task lists em modo escuro */
 .prose .task-list {
     border-color: #4a4a4a;
@@ -198,4 +184,5 @@ body{
             /* Remova a margem do parágrafo para ajuste */
         }
     }
+    color: #f8f9facd;
 }
