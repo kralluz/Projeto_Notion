@@ -47,12 +47,12 @@ export const Article = () => {
 
     const getInitialContentFromLocalStorage = () => {
         const initialContent = localStorage.getItem("editorContent");
-        return initialContent || ""; // Use o valor padrão desejado se não houver conteúdo no localStorage
+        return initialContent || "";
     };
+    
     const [editorContent, setEditorContent] = useState(
-        localStorage.getItem("editorContent")
+        JSON.parse(localStorage.getItem("editorContent"))
     );
-
 
     const editor = useEditor({
         extensions: [
@@ -106,9 +106,9 @@ export const Article = () => {
         setIsLinkInputVisible(!isLinkInputVisible);
     };
 
-    let newContent = editor.view.dom.innerText;
-    let contentJSON = JSON.stringify(newContent);
-    localStorage.setItem("editorContent", contentJSON );
+    let newContent = editor.view.dom.innerHTML;
+    console.dir(editor)
+    localStorage.setItem("editorContent", JSON.stringify(newContent) );
 
     const setLink = () => {
         if (isLinkInputVisible) {
@@ -405,7 +405,9 @@ export const Article = () => {
             )}
             <EditorContent
                 editor={editor}
+                
                 onChange={({ editor }) => {
+                    console.log(editor)
                     const newContent = editor.view.dom.innerText;
                     handleEditorInputChange(newContent);
                 }}
