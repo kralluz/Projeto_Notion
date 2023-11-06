@@ -13,12 +13,12 @@ $gray-5: #131415;
 $sucess: #3fe864;
 $negative: #E83F5B;
 
-
-body p {
+body {
     background-color: #131415;
     color: white;
 
 }
+
 
 *:focus {
     outline: none;
@@ -193,28 +193,15 @@ body p {
     }
 }
 
-code {
-    background-color: #282a36;
-    /* Cor de fundo escura */
-    color: #f8f8f2;
-    /* Cor do texto */
-    padding: 4px;
-    /* Espaçamento interno */
-    border-radius: 4px;
-    /* Borda arredondada */
-    font-family: 'Monaco', monospace;
-    /* Fonte de código monoespaçada */
-}
-
 .ContainerSetLink {
     position: relative;
-    width: 350px;
+    width: 342px;
     font-size: 24px;
     text-align: center;
 
     .ContainerSetLinkMenu {
         position: relative;
-        right: 0px;
+        right: 3px;
         top: 8px;
         width: 350px;
         height: 100px;
@@ -300,18 +287,26 @@ code {
     }
 }
 
-.tiptap p.is-editor-empty:first-child::before {
-    color: #adb5bd;
-    content: attr(data-placeholder);
-    float: left;
-    height: 0;
-    pointer-events: none;
-}
+ul[data-type="taskList"] {
+    list-style: none;
+    padding: 0;
 
-.tiptap p.is-empty::before {
-    color: #adb5bd;
-    content: attr(data-placeholder);
-    float: left;
-    height: 0;
-    pointer-events: none;
+    li {
+        display: flex;
+        align-items: center;
+
+        >label {
+            flex: 0 0 auto;
+            margin-right: 0.5rem;
+            user-select: none;
+        }
+
+        >div {
+            flex: 1 1 auto;
+        }
+    }
+
+    input[type="checkbox"] {
+        cursor: pointer;
+    }
 }

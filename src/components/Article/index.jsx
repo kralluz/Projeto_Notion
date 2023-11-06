@@ -13,6 +13,7 @@ import { AiOutlineBgColors } from "react-icons/ai";
 import { HiMiniArrowUpRight } from "react-icons/hi2";
 import { MdOutlineFormatUnderlined } from "react-icons/md";
 import { BsCodeSlash } from "react-icons/bs";
+import { AiOutlineTable } from "react-icons/ai";
 
 import React, { useState } from "react";
 import { InitialContent } from "./initialContent";
@@ -32,6 +33,10 @@ import Placeholder from "@tiptap/extension-placeholder";
 import Heading from "@tiptap/extension-heading";
 import TaskItem from "@tiptap/extension-task-item";
 import TaskList from "@tiptap/extension-task-list";
+import Table from '@tiptap/extension-table'
+import TableCell from '@tiptap/extension-table-cell'
+import TableHeader from '@tiptap/extension-table-header'
+import TableRow from '@tiptap/extension-table-row'
 
 export const Article = () => {
     const [isEditable, setIsEditable] = React.useState(true);
@@ -66,6 +71,12 @@ export const Article = () => {
             Link.configure({
                 protocols: ["ftp"],
             }),
+            Table.configure({
+                resizable: true,
+            }),
+            TableRow,
+            TableHeader,
+            TableCell,
         ],
         content: InitialContent,
         editorProps: {
@@ -174,13 +185,8 @@ export const Article = () => {
                                         : ""
                                 }
                             >
-                                <p>toggleTaskList</p>
-                                <p>toggleTaskList</p>
-                                <p>toggleTaskList</p>
-                                <p>toggleTaskList</p>
-                                <p>toggleTaskList</p>
-                                <p>toggleTaskList</p>
-                                <p>toggleTaskList</p>
+                                <img src="https://www.notion.so/images/blocks/to-do.f8d20542.png" alt="task List" title="Inserir lista de tarefas" />
+                                <p>Adicionar lista de tarefas</p>
                             </button>
 
                             <button
@@ -245,6 +251,29 @@ export const Article = () => {
                                     alt="texto sem formatação"
                                     title="Texto sem formatação"
                                 />
+                                <p>Titulo de seção pequeno</p>
+                            </button>
+                            <button
+                            onClick={() =>
+                                editor
+                                    .chain()
+                                    .focus()
+                                    .insertTable({
+                                        rows: 3,
+                                        cols: 3,
+                                        withHeaderRow: true,
+                                    })
+                                    .run()
+                            }
+                        >
+
+                            <div className="branco">
+                            <img
+                                    src="https://i.imgur.com/zz2taOF.png"
+                                    alt="texto sem formatação"
+                                    title="Texto sem formatação"
+                                />
+                            </div>
                                 <p>Titulo de seção pequeno</p>
                             </button>
                         </div>
