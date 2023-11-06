@@ -30,7 +30,8 @@ import { LinkInputComponent } from "../LinkInputComponent";
 import Text from "@tiptap/extension-text";
 import Placeholder from "@tiptap/extension-placeholder";
 import Heading from "@tiptap/extension-heading";
-import { FloatingMenuButton } from "../FloatingMenuButton";
+import TaskItem from "@tiptap/extension-task-item";
+import TaskList from "@tiptap/extension-task-list";
 
 export const Article = () => {
     const [isEditable, setIsEditable] = React.useState(true);
@@ -46,7 +47,10 @@ export const Article = () => {
             Underline,
             Code,
             Text,
-
+            TaskList,
+            TaskItem.configure({
+                nested: true,
+            }),
             Heading.configure({
                 levels: [1, 2, 3],
             }),
@@ -141,15 +145,11 @@ export const Article = () => {
                         return currentLineText === "/";
                     }}
                 >
-                    <div >
-                        <div >
+                    <div>
+                        <div>
                             <button
                                 onClick={() =>
-                                    editor
-                                        .chain()
-                                        .focus()
-                                        .setHardBreak()
-                                        .run()
+                                    editor.chain().focus().setHardBreak().run()
                                 }
                             >
                                 <img
@@ -158,6 +158,29 @@ export const Article = () => {
                                     title="Texto sem formatação"
                                 />
                                 <p>Texto</p>
+                            </button>
+
+                            <button
+                                onClick={() =>
+                                    editor
+                                        .chain()
+                                        .focus()
+                                        .toggleTaskList()
+                                        .run()
+                                }
+                                className={
+                                    editor.isActive("taskList")
+                                        ? "is-active"
+                                        : ""
+                                }
+                            >
+                                <p>toggleTaskList</p>
+                                <p>toggleTaskList</p>
+                                <p>toggleTaskList</p>
+                                <p>toggleTaskList</p>
+                                <p>toggleTaskList</p>
+                                <p>toggleTaskList</p>
+                                <p>toggleTaskList</p>
                             </button>
 
                             <button
