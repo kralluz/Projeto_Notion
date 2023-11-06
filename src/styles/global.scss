@@ -15,10 +15,15 @@ $negative: #E83F5B;
 
 body {
     background-color: #131415;
-    color: white;
-
+    color: white!important;
+}
+p{
+    color: white!important;
 }
 
+.is-active svg {
+    color: #65649e !important;
+}
 
 *:focus {
     outline: none;
@@ -309,4 +314,9 @@ ul[data-type="taskList"] {
     input[type="checkbox"] {
         cursor: pointer;
     }
+}
+
+img {
+    max-width: 50px;
+    height: auto;
 }

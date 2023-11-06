@@ -13,10 +13,9 @@ import { AiOutlineBgColors } from "react-icons/ai";
 import { HiMiniArrowUpRight } from "react-icons/hi2";
 import { MdOutlineFormatUnderlined } from "react-icons/md";
 import { BsCodeSlash } from "react-icons/bs";
-import { AiOutlineTable } from "react-icons/ai";
 
 import React, { useState } from "react";
-import { InitialContent } from "./initialContent";
+
 import {
     BubbleMenu,
     EditorContent,
@@ -33,10 +32,10 @@ import Placeholder from "@tiptap/extension-placeholder";
 import Heading from "@tiptap/extension-heading";
 import TaskItem from "@tiptap/extension-task-item";
 import TaskList from "@tiptap/extension-task-list";
-import Table from '@tiptap/extension-table'
-import TableCell from '@tiptap/extension-table-cell'
-import TableHeader from '@tiptap/extension-table-header'
-import TableRow from '@tiptap/extension-table-row'
+import Table from "@tiptap/extension-table";
+import TableCell from "@tiptap/extension-table-cell";
+import TableHeader from "@tiptap/extension-table-header";
+import TableRow from "@tiptap/extension-table-row";
 
 export const Article = () => {
     const [isEditable, setIsEditable] = React.useState(true);
@@ -45,6 +44,15 @@ export const Article = () => {
     const [linkInputValue, setLinkInputValue] = React.useState("");
 
     const [isTextOptionsVisible, setIsTextOptionsVisible] = useState(false);
+
+    const getInitialContentFromLocalStorage = () => {
+        const initialContent = localStorage.getItem("editorContent");
+        return initialContent || ""; // Use o valor padrão desejado se não houver conteúdo no localStorage
+    };
+    const [editorContent, setEditorContent] = useState(
+        localStorage.getItem("editorContent")
+    );
+
 
     const editor = useEditor({
         extensions: [
@@ -78,7 +86,7 @@ export const Article = () => {
             TableHeader,
             TableCell,
         ],
-        content: InitialContent,
+        content: editorContent,
         editorProps: {
             attributes: {
                 class: "prose",
@@ -97,6 +105,10 @@ export const Article = () => {
     const toggleLinkInput = () => {
         setIsLinkInputVisible(!isLinkInputVisible);
     };
+
+    let newContent = editor.view.dom.innerText;
+    let contentJSON = JSON.stringify(newContent);
+    localStorage.setItem("editorContent", contentJSON );
 
     const setLink = () => {
         if (isLinkInputVisible) {
@@ -185,7 +197,11 @@ export const Article = () => {
                                         : ""
                                 }
                             >
-                                <img src="https://www.notion.so/images/blocks/to-do.f8d20542.png" alt="task List" title="Inserir lista de tarefas" />
+                                <img
+                                    src="https://www.notion.so/images/blocks/to-do.f8d20542.png"
+                                    alt="task List"
+                                    title="Inserir lista de tarefas"
+                                />
                                 <p>Adicionar lista de tarefas</p>
                             </button>
 
@@ -254,26 +270,25 @@ export const Article = () => {
                                 <p>Titulo de seção pequeno</p>
                             </button>
                             <button
-                            onClick={() =>
-                                editor
-                                    .chain()
-                                    .focus()
-                                    .insertTable({
-                                        rows: 3,
-                                        cols: 3,
-                                        withHeaderRow: true,
-                                    })
-                                    .run()
-                            }
-                        >
-
-                            <div className="branco">
-                            <img
-                                    src="https://i.imgur.com/zz2taOF.png"
-                                    alt="texto sem formatação"
-                                    title="Texto sem formatação"
-                                />
-                            </div>
+                                onClick={() =>
+                                    editor
+                                        .chain()
+                                        .focus()
+                                        .insertTable({
+                                            rows: 3,
+                                            cols: 3,
+                                            withHeaderRow: true,
+                                        })
+                                        .run()
+                                }
+                            >
+                                <div className="branco">
+                                    <img
+                                        src="https://i.imgur.com/zz2taOF.png"
+                                        alt="texto sem formatação"
+                                        title="Texto sem formatação"
+                                    />
+                                </div>
                                 <p>Titulo de seção pequeno</p>
                             </button>
                         </div>
@@ -388,7 +403,14 @@ export const Article = () => {
                     />
                 </BubbleMenu>
             )}
-            <EditorContent editor={editor} />
+            <EditorContent
+                editor={editor}
+                onChange={({ editor }) => {
+                    const newContent = editor.view.dom.innerText;
+                    handleEditorInputChange(newContent);
+                }}
+            >
+            </EditorContent>
         </>
     );
 };
