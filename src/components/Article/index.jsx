@@ -94,28 +94,21 @@ export const Article = () => {
                 <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
                     <BubbleMenuDiv>
 
-                        <BubbleMenuButton
-                            onClick={() =>
-                                editor.chain().focus().toggleBold().run()
-                            }
-                            className={
-                                editor.isActive("bold") ? "is-active" : ""
-                            }
-                        >
+                        <BubbleMenuButton title="Inserir texto">
                             <BiText />
                             <MdKeyboardArrowDown />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton onClick={setLink}>
+                        <BubbleMenuButton title="Inserir Link" onClick={setLink}>
                             <HiMiniArrowUpRight />
                             <span>Link</span>
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton>
+                        <BubbleMenuButton title="Inserir Comentário">
                             <BiCommentDetail />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton
+                        <BubbleMenuButton  title="Negrito"
                             onClick={() =>
                                 editor.chain().focus().toggleBold().run()
                             }
@@ -126,7 +119,7 @@ export const Article = () => {
                             <BiBold />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton
+                        <BubbleMenuButton  title="Itálico"
                             onClick={() =>
                                 editor.chain().focus().toggleItalic().run()
                             }
@@ -137,7 +130,7 @@ export const Article = () => {
                             <TbItalic />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton
+                        <BubbleMenuButton  title="Sublinhado"
                             onClick={() =>
                                 editor.chain().focus().toggleUnderline().run()
                             }
@@ -148,7 +141,7 @@ export const Article = () => {
                             <MdOutlineFormatUnderlined />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton
+                        <BubbleMenuButton  title="Tachado"
                             onClick={() =>
                                 editor.chain().focus().toggleStrike().run()
                             }
@@ -159,7 +152,7 @@ export const Article = () => {
                             <GrStrikeThrough />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton
+                        <BubbleMenuButton title="Código"
                             onClick={() =>
                                 editor.chain().focus().toggleCode().run()
                             }
@@ -170,7 +163,7 @@ export const Article = () => {
                             <BsCodeSlash />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton
+                        <BubbleMenuButton  title="Citação"
                             onClick={() =>
                                 editor.chain().focus().toggleBlockquote().run()
                             }
@@ -181,14 +174,7 @@ export const Article = () => {
                             <GrBlockQuote />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton
-                            onClick={() =>
-                                editor.chain().focus().toggleStrike().run()
-                            }
-                            className={
-                                editor.isActive("strike") ? "is-active" : ""
-                            }
-                        >
+                        <BubbleMenuButton title="Cores de Fundo">
                             <AiOutlineBgColors />
                         </BubbleMenuButton>
 
