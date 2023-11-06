@@ -22,17 +22,32 @@ import Underline from "@tiptap/extension-underline";
 import Code from "@tiptap/extension-code";
 import Link from "@tiptap/extension-link";
 import { LinkInputComponent } from "../LinkInputComponent";
+import Text from "@tiptap/extension-text";
+import Placeholder from "@tiptap/extension-placeholder";
 
 export const Article = () => {
     const [isEditable, setIsEditable] = React.useState(true);
+
     const [isLinkInputVisible, setIsLinkInputVisible] = useState(false);
     const [linkInputValue, setLinkInputValue] = React.useState("");
+
+    const [isTextOptionsVisible, setIsTextOptionsVisible] = useState(false);
 
     const editor = useEditor({
         extensions: [
             StarterKit,
             Underline,
             Code,
+            Text,
+            Placeholder.configure({
+                emptyEditorClass: "is-editor-empty",
+                placeholder: ({ node }) => {
+                    if (node.type.name === "title") {
+                        return "What’s the title?";
+                    }
+                    return `Pressione "/" para ver os comandos` ;
+                },
+            }),
             Link.configure({
                 protocols: ["ftp"],
             }),
@@ -72,6 +87,21 @@ export const Article = () => {
         }
     };
 
+    const textOptions = () => {
+        if (isTextOptionsVisible) {
+            editor
+                .chain()
+                .focus()
+                .extendMarkRange("link")
+                .setLink({ href: linkInputValue })
+                .run();
+            setLinkInputValue("");
+            toggleLinkInput();
+        } else {
+            toggleLinkInput();
+        }
+    };
+
     const handleKeyPress = (event) => {
         if (event.key === "Enter") {
             setLink();
@@ -93,13 +123,18 @@ export const Article = () => {
             {editor && (
                 <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
                     <BubbleMenuDiv>
-
-                        <BubbleMenuButton title="Inserir texto">
+                        <BubbleMenuButton
+                            title="Inserir texto"
+                            onClick={textOptions}
+                        >
                             <BiText />
                             <MdKeyboardArrowDown />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton title="Inserir Link" onClick={setLink}>
+                        <BubbleMenuButton
+                            title="Inserir Link"
+                            onClick={setLink}
+                        >
                             <HiMiniArrowUpRight />
                             <span>Link</span>
                         </BubbleMenuButton>
@@ -108,7 +143,8 @@ export const Article = () => {
                             <BiCommentDetail />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton  title="Negrito"
+                        <BubbleMenuButton
+                            title="Negrito"
                             onClick={() =>
                                 editor.chain().focus().toggleBold().run()
                             }
@@ -119,7 +155,8 @@ export const Article = () => {
                             <BiBold />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton  title="Itálico"
+                        <BubbleMenuButton
+                            title="Itálico"
                             onClick={() =>
                                 editor.chain().focus().toggleItalic().run()
                             }
@@ -130,7 +167,8 @@ export const Article = () => {
                             <TbItalic />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton  title="Sublinhado"
+                        <BubbleMenuButton
+                            title="Sublinhado"
                             onClick={() =>
                                 editor.chain().focus().toggleUnderline().run()
                             }
@@ -141,7 +179,8 @@ export const Article = () => {
                             <MdOutlineFormatUnderlined />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton  title="Tachado"
+                        <BubbleMenuButton
+                            title="Tachado"
                             onClick={() =>
                                 editor.chain().focus().toggleStrike().run()
                             }
@@ -152,7 +191,8 @@ export const Article = () => {
                             <GrStrikeThrough />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton title="Código"
+                        <BubbleMenuButton
+                            title="Código"
                             onClick={() =>
                                 editor.chain().focus().toggleCode().run()
                             }
@@ -163,7 +203,8 @@ export const Article = () => {
                             <BsCodeSlash />
                         </BubbleMenuButton>
 
-                        <BubbleMenuButton  title="Citação"
+                        <BubbleMenuButton
+                            title="Citação"
                             onClick={() =>
                                 editor.chain().focus().toggleBlockquote().run()
                             }
@@ -177,16 +218,45 @@ export const Article = () => {
                         <BubbleMenuButton title="Cores de Fundo">
                             <AiOutlineBgColors />
                         </BubbleMenuButton>
-
                     </BubbleMenuDiv>
-
                     <LinkInputComponent
                         isLinkInputVisible={isLinkInputVisible}
                         linkInputValue={linkInputValue}
                         setLinkInputValue={setLinkInputValue}
                         handleKeyPress={handleKeyPress}
                     />
-
+                    {isTextOptionsVisible && (
+                        <div className="ContainerSetLink">
+                            <div className="ContainerSetLinkMenu">
+                                <input
+                                    className="InputSetLink"
+                                    type="text"
+                                    placeholder="Colar link"
+                                    value={linkInputValue}
+                                    onChange={(e) =>
+                                        setLinkInputValue(e.target.value)
+                                    }
+                                    onKeyUp={handleKeyPress}
+                                />
+                                <div className="ContainerSetLinkMoreOptions">
+                                    <div className="SetLinkMoreOptions">
+                                        <div className="box">
+                                            <div className="box1">
+                                                <AiOutlineGlobal />
+                                            </div>
+                                            <div className="box2">
+                                                <p>{linkInputValue}</p>
+                                                <p className="SetLinkMoreOptions--description">
+                                                    Digite uma URL completa para
+                                                    vincular
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </BubbleMenu>
             )}
             <EditorContent editor={editor} />

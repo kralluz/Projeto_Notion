@@ -9,12 +9,14 @@ $gray-1: #868e96;
 $gray-2: #424242;
 $gray-3: #242424;
 $gray-4: #141414;
-$gray-5: #202020;
+$gray-5: #131415;
 $sucess: #3fe864;
 $negative: #E83F5B;
 
+
 body {
-    background-color: $gray-5;
+    background-color: #131415;
+;
 }
 
 *:focus {
@@ -295,4 +297,20 @@ code {
             }
         }
     }
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+    color: #adb5bd;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+}
+
+.tiptap p.is-empty::before {
+    color: #adb5bd;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
 }
