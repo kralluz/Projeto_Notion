@@ -292,31 +292,23 @@ p{
     }
 }
 
-ul[data-type="taskList"] {
-    list-style: none;
-    padding: 0;
-
-    li {
-        display: flex;
-        align-items: center;
-
-        >label {
-            flex: 0 0 auto;
-            margin-right: 0.5rem;
-            user-select: none;
-        }
-
-        >div {
-            flex: 1 1 auto;
-        }
-    }
-
-    input[type="checkbox"] {
-        cursor: pointer;
-    }
-}
 
 img {
     max-width: 50px;
     height: auto;
+}
+
+.FloatingMenuMainContainer{
+    background-color: #1b1b1b;
+
+
+    .FloatingMenuContainer{
+        display: flex;
+        flex-direction: column;
+
+        button{
+            background-color: #313131;
+            display: flex;
+        }
+    }
 }

@@ -70,7 +70,7 @@ export const Article = () => {
             Placeholder.configure({
                 emptyEditorClass: "is-editor-empty",
                 placeholder: ({ node }) => {
-                    if (node.type.name === "Title") {
+                    if (node.type.name === "text") {
                         return "What’s the title?";
                     }
                     return `Pressione "/" para ver os comandos`;
@@ -168,8 +168,8 @@ export const Article = () => {
                         return currentLineText === "/";
                     }}
                 >
-                    <div>
-                        <div>
+                    <div className="FloatingMenuMainContainer">
+                        <div className="FloatingMenuContainer">
                             <button
                                 onClick={() =>
                                     editor.chain().focus().setHardBreak().run()
@@ -180,7 +180,8 @@ export const Article = () => {
                                     alt="texto sem formatação"
                                     title="Texto sem formatação"
                                 />
-                                <p>Texto</p>
+                                <h4>Texto</h4>
+                                <p>Comece a escrever um texto sem formatação</p>
                             </button>
 
                             <button
