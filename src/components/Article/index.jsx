@@ -16,7 +16,12 @@ import { BsCodeSlash } from "react-icons/bs";
 
 import React, { useState } from "react";
 import { InitialContent } from "./initialContent";
-import { BubbleMenu, EditorContent, useEditor } from "@tiptap/react";
+import {
+    BubbleMenu,
+    EditorContent,
+    FloatingMenu,
+    useEditor,
+} from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import Code from "@tiptap/extension-code";
@@ -24,6 +29,8 @@ import Link from "@tiptap/extension-link";
 import { LinkInputComponent } from "../LinkInputComponent";
 import Text from "@tiptap/extension-text";
 import Placeholder from "@tiptap/extension-placeholder";
+import Heading from "@tiptap/extension-heading";
+import { FloatingMenuButton } from "../FloatingMenuButton";
 
 export const Article = () => {
     const [isEditable, setIsEditable] = React.useState(true);
@@ -39,13 +46,17 @@ export const Article = () => {
             Underline,
             Code,
             Text,
+
+            Heading.configure({
+                levels: [1, 2, 3],
+            }),
             Placeholder.configure({
                 emptyEditorClass: "is-editor-empty",
                 placeholder: ({ node }) => {
-                    if (node.type.name === "title") {
+                    if (node.type.name === "Title") {
                         return "What’s the title?";
                     }
-                    return `Pressione "/" para ver os comandos` ;
+                    return `Pressione "/" para ver os comandos`;
                 },
             }),
             Link.configure({
@@ -102,7 +113,7 @@ export const Article = () => {
         }
     };
 
-    const handleKeyPress = (event) => {
+    const insertLinkKeyPress = (event) => {
         if (event.key === "Enter") {
             setLink();
             setIsLinkInputVisible(false);
@@ -120,6 +131,104 @@ export const Article = () => {
                 />
                 Editable
             </div>
+
+            {editor && (
+                <FloatingMenu
+                    editor={editor}
+                    shouldShow={({ state }) => {
+                        const { $from } = state.selection;
+                        const currentLineText = $from.nodeBefore?.textContent;
+                        return currentLineText === "/";
+                    }}
+                >
+                    <div >
+                        <div >
+                            <button
+                                onClick={() =>
+                                    editor
+                                        .chain()
+                                        .focus()
+                                        .setHardBreak()
+                                        .run()
+                                }
+                            >
+                                <img
+                                    src="https://www.notion.so/images/blocks/text/en-US.png"
+                                    alt="texto sem formatação"
+                                    title="Texto sem formatação"
+                                />
+                                <p>Texto</p>
+                            </button>
+
+                            <button
+                                onClick={() =>
+                                    editor
+                                        .chain()
+                                        .focus()
+                                        .toggleHeading({ level: 1 })
+                                        .run()
+                                }
+                                className={
+                                    editor.isActive("heading", { level: 1 })
+                                        ? "is-active"
+                                        : ""
+                                }
+                            >
+                                <img
+                                    src="https://www.notion.so/images/blocks/header.57a7576a.png"
+                                    alt="texto sem formatação"
+                                    title="Texto sem formatação"
+                                />
+                                <p>Titulo de seção grande</p>
+                            </button>
+
+                            <button
+                                onClick={() =>
+                                    editor
+                                        .chain()
+                                        .focus()
+                                        .toggleHeading({ level: 2 })
+                                        .run()
+                                }
+                                className={
+                                    editor.isActive("heading", { level: 2 })
+                                        ? "is-active"
+                                        : ""
+                                }
+                            >
+                                <img
+                                    src="https://www.notion.so/images/blocks/subheader.9aab4769.png"
+                                    alt="texto sem formatação"
+                                    title="Texto sem formatação"
+                                />
+                                <p>Titulo de seção médio</p>
+                            </button>
+                            <button
+                                onClick={() =>
+                                    editor
+                                        .chain()
+                                        .focus()
+                                        .toggleHeading({ level: 3 })
+                                        .run()
+                                }
+                                className={
+                                    editor.isActive("heading", { level: 3 })
+                                        ? "is-active"
+                                        : ""
+                                }
+                            >
+                                <img
+                                    src="https://www.notion.so/images/blocks/subsubheader.d0ed0bb3.png"
+                                    alt="texto sem formatação"
+                                    title="Texto sem formatação"
+                                />
+                                <p>Titulo de seção pequeno</p>
+                            </button>
+                        </div>
+                    </div>
+                </FloatingMenu>
+            )}
+
             {editor && (
                 <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
                     <BubbleMenuDiv>
@@ -223,40 +332,8 @@ export const Article = () => {
                         isLinkInputVisible={isLinkInputVisible}
                         linkInputValue={linkInputValue}
                         setLinkInputValue={setLinkInputValue}
-                        handleKeyPress={handleKeyPress}
+                        handleKeyPress={insertLinkKeyPress}
                     />
-                    {isTextOptionsVisible && (
-                        <div className="ContainerSetLink">
-                            <div className="ContainerSetLinkMenu">
-                                <input
-                                    className="InputSetLink"
-                                    type="text"
-                                    placeholder="Colar link"
-                                    value={linkInputValue}
-                                    onChange={(e) =>
-                                        setLinkInputValue(e.target.value)
-                                    }
-                                    onKeyUp={handleKeyPress}
-                                />
-                                <div className="ContainerSetLinkMoreOptions">
-                                    <div className="SetLinkMoreOptions">
-                                        <div className="box">
-                                            <div className="box1">
-                                                <AiOutlineGlobal />
-                                            </div>
-                                            <div className="box2">
-                                                <p>{linkInputValue}</p>
-                                                <p className="SetLinkMoreOptions--description">
-                                                    Digite uma URL completa para
-                                                    vincular
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
                 </BubbleMenu>
             )}
             <EditorContent editor={editor} />
