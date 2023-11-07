@@ -24,6 +24,7 @@ export const SideBarContainer = styled.div<SideBar>`
     left: ${props => props.isopensidebarvalue ? '0' : '-170px'};
     transform: ${props => props.isopensidebarvalue ? 'translateY(0%)' : 'translateY(-50%)'};
     min-width: 220px;
+    width: fit-content;
     background-color: var(--gray-5);    
     border-radius: 0 5px 5px 0;
     transition: .6s;

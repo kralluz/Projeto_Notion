@@ -2,6 +2,9 @@ import { OpenAndClose } from "../openAndClose/styles";
 import { SideBarItem } from "../sidebarItem";
 import { SideBarComponent, SideBarContainer } from "./styles";
 import { IoMdAddCircle } from "react-icons/io";
+import { IoSearchSharp } from 'react-icons/io5';
+import { PiGearSixBold } from 'react-icons/pi';
+import { BiTimeFive } from 'react-icons/bi';
 import {
     MdKeyboardDoubleArrowLeft,
     MdKeyboardDoubleArrowRight,
@@ -29,8 +32,17 @@ export const SideBar = ({ isopensidebarvalue, switchOpenOrClose }: any) => {
                         </div>
                     </OpenAndClose>
                     <SideBarItem
-                        content="Nova página"
-                        icon={<IoMdAddCircle />}
+                        content="Pesquisar"
+                        icon={<IoSearchSharp />}
+                    />
+                    <SideBarItem
+                        content="Atualizações"
+                        icon={<BiTimeFive />}
+                    />
+                    
+                    <SideBarItem
+                        content="Configurações e membros"
+                        icon={<PiGearSixBold />}
                     />
                     <SideBarItem
                         content="Nova página"
