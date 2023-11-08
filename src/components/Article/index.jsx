@@ -404,14 +404,9 @@ export const Article = () => {
                     />
                 </BubbleMenu>
             )}
-            <EditorContent
+            <EditorContent 
                 editor={editor}
-                
-                onChange={({ editor }) => {
-                    console.log(editor)
-                    const newContent = editor.view.dom.innerText;
-                    handleEditorInputChange(newContent);
-                }}
+
             >
             </EditorContent>
         </>
