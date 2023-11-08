@@ -51,9 +51,11 @@ export const Article = () => {
         return initialContent || "";
     };
 
-    const editorContent: string =  JSON.parse(getInitialContentFromLocalStorage());
+    let editorContent = getInitialContentFromLocalStorage();
+    editorContent = editorContent ? JSON.parse(editorContent) : "";
 
     const editor = useEditor({
+
         extensions: [
             StarterKit,
             Underline,
