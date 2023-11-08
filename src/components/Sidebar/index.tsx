@@ -1,4 +1,4 @@
-import { OpenAndClose } from "../openAndClose/styles";
+import { OpenAndClose } from "../OpenAndClose/styles";
 import { SideBarItem } from "../sidebarItem";
 import { SideBarComponent, SideBarContainer } from "./styles";
 import { IoMdAddCircle } from "react-icons/io";

@@ -37,22 +37,21 @@ import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 
+
 export const Article = () => {
     const [isEditable, setIsEditable] = React.useState(true);
 
     const [isLinkInputVisible, setIsLinkInputVisible] = useState(false);
     const [linkInputValue, setLinkInputValue] = React.useState("");
 
-    const [isTextOptionsVisible, setIsTextOptionsVisible] = useState(false);
+/*     const [isTextOptionsVisible, setIsTextOptionsVisible] = useState(false); */ // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
 
     const getInitialContentFromLocalStorage = () => {
         const initialContent = localStorage.getItem("editorContent");
         return initialContent || "";
     };
-    
-    const [editorContent, setEditorContent] = useState(
-        JSON.parse(localStorage.getItem("editorContent"))
-    );
+
+    const editorContent: string =  JSON.parse(getInitialContentFromLocalStorage());
 
     const editor = useEditor({
         extensions: [
@@ -107,8 +106,7 @@ export const Article = () => {
     };
 
     let newContent = editor.view.dom.innerHTML;
-    console.dir(editor)
-    localStorage.setItem("editorContent", JSON.stringify(newContent) );
+    localStorage.setItem("editorContent", JSON.stringify(newContent));
 
     const setLink = () => {
         if (isLinkInputVisible) {
@@ -125,7 +123,7 @@ export const Article = () => {
         }
     };
 
-    const textOptions = () => {
+/*     const textOptions = () => {  // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
         if (isTextOptionsVisible) {
             editor
                 .chain()
@@ -135,12 +133,13 @@ export const Article = () => {
                 .run();
             setLinkInputValue("");
             toggleLinkInput();
+            setIsTextOptionsVisible(false);
         } else {
             toggleLinkInput();
         }
-    };
+    }; */
 
-    const insertLinkKeyPress = (event) => {
+    const insertLinkKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
             setLink();
             setIsLinkInputVisible(false);
@@ -302,7 +301,7 @@ export const Article = () => {
                     <BubbleMenuDiv>
                         <BubbleMenuButton
                             title="Inserir texto"
-                            onClick={textOptions}
+                            /* onClick={textOptions} */ // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
                         >
                             <BiText />
                             <MdKeyboardArrowDown />
@@ -406,12 +405,7 @@ export const Article = () => {
             )}
             <EditorContent
                 editor={editor}
-                
-                onChange={({ editor }) => {
-                    console.log(editor)
-                    const newContent = editor.view.dom.innerText;
-                    handleEditorInputChange(newContent);
-                }}
+            
             >
             </EditorContent>
         </>

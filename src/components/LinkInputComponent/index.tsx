@@ -1,7 +1,14 @@
+
 import { AiOutlineGlobal } from "react-icons/ai";
 
-export const LinkInputComponent = ({ isLinkInputVisible, linkInputValue, setLinkInputValue, handleKeyPress,  }) => {
+interface LinkInputComponentProps {
+    isLinkInputVisible: boolean;
+    linkInputValue: string;
+    setLinkInputValue: React.Dispatch<React.SetStateAction<string>>;
+    handleKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+}
 
+export const LinkInputComponent: React.FC<LinkInputComponentProps> = ({ isLinkInputVisible, linkInputValue, setLinkInputValue, handleKeyPress }) => {
     return (
         isLinkInputVisible && (
             <div className="ContainerSetLink">
