@@ -37,14 +37,18 @@ import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 
+interface ArticleProps {
+    text: string;
+}
 
-export const Article = () => {
+
+export const Article: React.FC<ArticleProps> = ({ text }) => {
     const [isEditable, setIsEditable] = React.useState(true);
 
     const [isLinkInputVisible, setIsLinkInputVisible] = useState(false);
     const [linkInputValue, setLinkInputValue] = React.useState("");
 
-/*     const [isTextOptionsVisible, setIsTextOptionsVisible] = useState(false); */ // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
+    /*     const [isTextOptionsVisible, setIsTextOptionsVisible] = useState(false); */ // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
 
     const getInitialContentFromLocalStorage = () => {
         const initialContent = localStorage.getItem("editorContent");
@@ -55,7 +59,6 @@ export const Article = () => {
     editorContent = editorContent ? JSON.parse(editorContent) : "";
 
     const editor = useEditor({
-
         extensions: [
             StarterKit,
             Underline,
@@ -87,7 +90,7 @@ export const Article = () => {
             TableHeader,
             TableCell,
         ],
-        content: editorContent,
+        content: text,
         editorProps: {
             attributes: {
                 class: "prose",
@@ -125,7 +128,7 @@ export const Article = () => {
         }
     };
 
-/*     const textOptions = () => {  // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
+    /*     const textOptions = () => {  // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
         if (isTextOptionsVisible) {
             editor
                 .chain()
@@ -141,7 +144,9 @@ export const Article = () => {
         }
     }; */
 
-    const insertLinkKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const insertLinkKeyPress = (
+        event: React.KeyboardEvent<HTMLInputElement>
+    ) => {
         if (event.key === "Enter") {
             setLink();
             setIsLinkInputVisible(false);
@@ -405,11 +410,7 @@ export const Article = () => {
                     />
                 </BubbleMenu>
             )}
-            <EditorContent
-                editor={editor}
-            
-            >
-            </EditorContent>
+            <EditorContent editor={editor}></EditorContent>
         </>
     );
 };
