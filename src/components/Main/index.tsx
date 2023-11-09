@@ -19,7 +19,7 @@ export const Main: React.FC = () => {
             await api
                 .get("/")
                 .then((response) => {
-                    setText(response.data);
+                    setText(response.data.conteudo);
                     text
                 })
                 .catch((error) => {
