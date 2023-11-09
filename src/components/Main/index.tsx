@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 export const Main: React.FC = () => {
     const [text, setText] = useState();
     const api = axios.create({
-        baseURL: "http://localhost:3010",
+        baseURL: "https://notion-clone-8n54.onrender.com/",
         timeout: 8000,
     });
 
