@@ -19,12 +19,10 @@ export const Main: React.FC = () => {
             await api
                 .get("/")
                 .then((response) => {
-                    setText(response.data.conteudo);
-                    text
+                    setText(response.data[0].conteudo);
                 })
                 .catch((error) => {
                     console.log("error", error);
-                    alert("error");
                 });
         };
         GetProducts();
