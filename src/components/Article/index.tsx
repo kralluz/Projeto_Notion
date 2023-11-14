@@ -50,13 +50,7 @@ export const Article: React.FC<ArticleProps> = ({ text }) => {
 
     /*     const [isTextOptionsVisible, setIsTextOptionsVisible] = useState(false); */ // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
 
-    const getInitialContentFromLocalStorage = () => {
-        const initialContent = localStorage.getItem("editorContent");
-        return initialContent || "";
-    };
 
-    let editorContent = getInitialContentFromLocalStorage();
-    editorContent = editorContent ? JSON.parse(editorContent) : "";
 
     const editor = useEditor({
         extensions: [
@@ -111,7 +105,7 @@ export const Article: React.FC<ArticleProps> = ({ text }) => {
     };
 
     let newContent = editor.view.dom.innerHTML;
-    localStorage.setItem("editorContent", JSON.stringify(newContent));
+
 
     const setLink = () => {
         if (isLinkInputVisible) {
