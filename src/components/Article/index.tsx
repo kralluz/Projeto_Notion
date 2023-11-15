@@ -1,6 +1,6 @@
 import "../../styles/global.scss";
 
-import { BubbleMenuButton, BubbleMenuDiv } from "../BubbleMenuButtons/style";
+import { BubbleMenuButton, BubbleMenuDiv } from "../ButtonBubbleMenu/style";
 
 import { GrBlockQuote } from "react-icons/gr";
 import { GrStrikeThrough } from "react-icons/gr";
@@ -14,7 +14,7 @@ import { HiMiniArrowUpRight } from "react-icons/hi2";
 import { MdOutlineFormatUnderlined } from "react-icons/md";
 import { BsCodeSlash } from "react-icons/bs";
 
-import React, { useState } from "react";
+import React from "react";
 
 import {
     BubbleMenu,
@@ -36,21 +36,22 @@ import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
+import useLinkManager from "../useLinkManager";
+import { FloatingMenuButton } from "../ButtonFloatingMenu";
 
 interface ArticleProps {
     text: string;
 }
 
-
 export const Article: React.FC<ArticleProps> = ({ text }) => {
     const [isEditable, setIsEditable] = React.useState(true);
-
-    const [isLinkInputVisible, setIsLinkInputVisible] = useState(false);
-    const [linkInputValue, setLinkInputValue] = React.useState("");
-
-    /*     const [isTextOptionsVisible, setIsTextOptionsVisible] = useState(false); */ // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
-
-
+    const {
+        isLinkInputVisible,
+        linkInputValue,
+        setLinkInputValue,
+        toggleLinkInput,
+        setLink,
+    } = useLinkManager();
 
     const editor = useEditor({
         extensions: [
@@ -100,50 +101,12 @@ export const Article: React.FC<ArticleProps> = ({ text }) => {
         editor.setEditable(isEditable);
     }
 
-    const toggleLinkInput = () => {
-        setIsLinkInputVisible(!isLinkInputVisible);
-    };
-
-    let newContent = editor.view.dom.innerHTML;
-
-
-    const setLink = () => {
-        if (isLinkInputVisible) {
-            editor
-                .chain()
-                .focus()
-                .extendMarkRange("link")
-                .setLink({ href: linkInputValue })
-                .run();
-            setLinkInputValue("");
-            toggleLinkInput();
-        } else {
-            toggleLinkInput();
-        }
-    };
-
-    /*     const textOptions = () => {  // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
-        if (isTextOptionsVisible) {
-            editor
-                .chain()
-                .focus()
-                .extendMarkRange("link")
-                .setLink({ href: linkInputValue })
-                .run();
-            setLinkInputValue("");
-            toggleLinkInput();
-            setIsTextOptionsVisible(false);
-        } else {
-            toggleLinkInput();
-        }
-    }; */
-
     const insertLinkKeyPress = (
         event: React.KeyboardEvent<HTMLInputElement>
     ) => {
         if (event.key === "Enter") {
-            setLink();
-            setIsLinkInputVisible(false);
+            setLink(editor);
+            toggleLinkInput();
             setLinkInputValue("");
         }
     };
@@ -177,7 +140,6 @@ export const Article: React.FC<ArticleProps> = ({ text }) => {
                             >
                                 <img
                                     src="https://www.notion.so/images/blocks/text/en-US.png"
-                                    alt="texto sem formatação"
                                     title="Texto sem formatação"
                                 />
                                 <h4>Texto</h4>
@@ -206,70 +168,31 @@ export const Article: React.FC<ArticleProps> = ({ text }) => {
                                 <p>Adicionar lista de tarefas</p>
                             </button>
 
-                            <button
-                                onClick={() =>
-                                    editor
-                                        .chain()
-                                        .focus()
-                                        .toggleHeading({ level: 1 })
-                                        .run()
-                                }
-                                className={
-                                    editor.isActive("heading", { level: 1 })
-                                        ? "is-active"
-                                        : ""
-                                }
-                            >
-                                <img
-                                    src="https://www.notion.so/images/blocks/header.57a7576a.png"
-                                    alt="texto sem formatação"
-                                    title="Texto sem formatação"
-                                />
-                                <p>Titulo de seção grande</p>
-                            </button>
 
-                            <button
-                                onClick={() =>
-                                    editor
-                                        .chain()
-                                        .focus()
-                                        .toggleHeading({ level: 2 })
-                                        .run()
-                                }
-                                className={
-                                    editor.isActive("heading", { level: 2 })
-                                        ? "is-active"
-                                        : ""
-                                }
-                            >
-                                <img
-                                    src="https://www.notion.so/images/blocks/subheader.9aab4769.png"
-                                    alt="texto sem formatação"
-                                    title="Texto sem formatação"
-                                />
-                                <p>Titulo de seção médio</p>
-                            </button>
-                            <button
-                                onClick={() =>
-                                    editor
-                                        .chain()
-                                        .focus()
-                                        .toggleHeading({ level: 3 })
-                                        .run()
-                                }
-                                className={
-                                    editor.isActive("heading", { level: 3 })
-                                        ? "is-active"
-                                        : ""
-                                }
-                            >
-                                <img
-                                    src="https://www.notion.so/images/blocks/subsubheader.d0ed0bb3.png"
-                                    alt="texto sem formatação"
-                                    title="Texto sem formatação"
-                                />
-                                <p>Titulo de seção pequeno</p>
-                            </button>
+                            <FloatingMenuButton
+                                editor={editor}
+                                level={1}
+                                src="https://www.notion.so/images/blocks/header.57a7576a.png"
+                                alt="texto sem formatação"
+                                text="Titulo de seção grande"
+                            />
+
+                            <FloatingMenuButton
+                                editor={editor}
+                                level={2}
+                                src="https://www.notion.so/images/blocks/subheader.9aab4769.png"
+                                alt="texto sem formatação"
+                                text="Titulo de seção médio"
+                            />
+
+                            <FloatingMenuButton
+                                editor={editor}
+                                level={3}
+                                src="https://www.notion.so/images/blocks/subsubheader.d0ed0bb3.png"
+                                alt="texto sem formatação"
+                                text="Titulo de seção pequeno"
+                            />
+
                             <button
                                 onClick={() =>
                                     editor
@@ -300,17 +223,14 @@ export const Article: React.FC<ArticleProps> = ({ text }) => {
             {editor && (
                 <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
                     <BubbleMenuDiv>
-                        <BubbleMenuButton
-                            title="Inserir texto"
-                            /* onClick={textOptions} */ // FUTURAMENTE SERÁ O DROP DOWN E OPÇÕES E TEXTO!
-                        >
+                        <BubbleMenuButton title="Inserir texto">
                             <BiText />
                             <MdKeyboardArrowDown />
                         </BubbleMenuButton>
 
                         <BubbleMenuButton
                             title="Inserir Link"
-                            onClick={setLink}
+                            onClick={() => setLink(editor)}
                         >
                             <HiMiniArrowUpRight />
                             <span>Link</span>
